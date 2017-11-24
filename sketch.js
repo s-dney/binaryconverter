@@ -52,7 +52,7 @@ function setup() {
    powerrowy = buttonrowy + 55;
 
   button1x = canvasx+70;
-    button1 = createButton(numbers[0]);
+    button1 = createButton(0);
     button1.mousePressed(changenumber1);
     button1.position(button1x, buttonrowy);
     n1 = createP(numbers[0]);
