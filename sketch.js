@@ -190,8 +190,7 @@ function changenumber(x) {
 function changenumber1() {
   if (numbers[0] == 0) {
     numbers[0] = 1;
-    var b = document.getElementById('b1');
-    b.html("h");
+    button1.html(numbers[0]);
     p1 = createP(numbers[0]);
     p1.class('animated fadeOutUp');
     p1.position(button1x, buttonrowy-20);
