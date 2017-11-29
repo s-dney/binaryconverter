@@ -1,42 +1,12 @@
 var canvasx = 300;
 var canvasy = 150;
-
-// var button11 = {
-//   x: canvasx+20,
-//   y: canvasy+5,
-//   number: 0,
-//   show: function() {
-//     createButton(this.number)
-//   }
-//   change: function() {
-//     if (this.number == 0) {
-//       this.number = 1;
-//       button1.html(this.number;
-//       p1 = createP(this.number;
-//       p1.class('animated fadeOutUp');
-//       p1.position(canvasx+22, canvasy-35);
-//       clear();
-//     } else {
-//       this.number = 0;
-//       button1.html(this.number);
-//       p1 = createP(this.number);
-//       p1.position(canvasx+22, canvasy-35);
-//       p1.class('animated fadeOutUp');
-//       clear();
-//     }
-//   }
-// }
+var input, convertbutton, header, a;
 var n1, n2, n3, n4, n5, n6, n7, n8, n9;
-
 var numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 var exponents = ["2⁰", "2¹", "2²", "2³", "2⁴", "2⁵", "2⁶", "2⁷", "2⁸", " "];
 var powers = [256, 128, 64, 32, 16, 8, 4, 2, 1];
-var buttons = [button1, button2, button3, button4, button5, button6, button7, button8, button9];
 var button1, button2, button3, button4, button5, button6, button7, button8, button9;
 var p1, p2, p3, p4, p5, p6, p7, p8, p9;
-
-
-//var num;
 
 function setup() {
 
@@ -45,11 +15,15 @@ function setup() {
 
    buttonrowy = canvasy+5;
 
-   exprowy = buttonrowy + 20;
+   exprowy = buttonrowy + 30;
 
-   xrowy = buttonrowy + 3;
+   xrowy = buttonrowy + 10;
 
-   powerrowy = buttonrowy + 55;
+   powerrowy = buttonrowy + 78;
+
+   powersize = "30px";
+
+   plusrowy = powerrowy+10;
 
   button1x = canvasx+70;
     button1 = createButton(0);
@@ -57,6 +31,8 @@ function setup() {
     button1.position(button1x, buttonrowy);
     n1 = createP(numbers[0]);
     n1.position(button1x-3, powerrowy);
+    n1.style("font-size", powersize);
+    n1.style("text-align", "center");
 
   button2x = canvasx+140;
     button2 = createButton(numbers[1]);
@@ -64,6 +40,7 @@ function setup() {
     button2.position(button2x, buttonrowy);
     n2 = createP(numbers[1]);
     n2.position(button2x-3, powerrowy);
+    n2.style("font-size", powersize);
 
   button3x = canvasx+210;
     button3 = createButton(numbers[2]);
@@ -71,6 +48,7 @@ function setup() {
     button3.position(button3x, buttonrowy);
     n3 = createP(numbers[2]);
     n3.position(button3x-3, powerrowy);
+    n3.style("font-size", powersize);
 
   button4x = canvasx+280;
     button4 = createButton(numbers[3]);
@@ -78,6 +56,7 @@ function setup() {
     button4.position(button4x, buttonrowy);
     n4 = createP(numbers[3]);
     n4.position(button4x-3, powerrowy);
+    n4.style("font-size", powersize);
 
   button5x = canvasx+350;
     button5 = createButton(numbers[4]);
@@ -85,6 +64,7 @@ function setup() {
     button5.position(button5x, buttonrowy);
     n5 = createP(numbers[4]);
     n5.position(button5x-3, powerrowy);
+    n5.style("font-size", powersize);
 
   button6x = canvasx+420;
     button6 = createButton(numbers[5]);
@@ -92,6 +72,7 @@ function setup() {
     button6.position(button6x, buttonrowy);
     n6 = createP(numbers[5]);
     n6.position(button6x-3, powerrowy);
+    n6.style("font-size", powersize);
 
   button7x = canvasx+490;
     button7 = createButton(numbers[6]);
@@ -99,6 +80,7 @@ function setup() {
     button7.position(button7x, buttonrowy);
     n7 = createP(numbers[6]);
     n7.position(button7x-3, powerrowy);
+    n7.style("font-size", powersize);
 
   button8x = canvasx+560;
     button8 = createButton(numbers[7]);
@@ -106,6 +88,7 @@ function setup() {
     button8.position(button8x, buttonrowy);
     n8 = createP(numbers[7]);
     n8.position(button8x-3, powerrowy);
+    n8.style("font-size", powersize);
 
   button9x = canvasx+630;
     button9 = createButton(numbers[8]);
@@ -113,11 +96,13 @@ function setup() {
     button9.position(button9x, buttonrowy);
     n9 = createP(numbers[8]);
     n9.position(button9x-3, powerrowy);
+    n9.style("font-size", powersize);
 
 
   for (i = 0; i<9; i++) {
     x = button1x-4;
     xp = createP("✕");
+    xp.style("font-size", "20px");
     xp.position(x+(70*i), xrowy);
   }
 
@@ -130,61 +115,52 @@ function setup() {
   for (i = 0; i<9; i++) {
     x = button1x-3;
     ar = createP("↓");
-    ar.position(x+(70*i), exprowy+15);
+    ar.position(x+(70*i), exprowy+25);
   }
 
   for (i=0; i<8; i++) {
     let x = button1x+30;
     pl = createP("+");
-    pl.position(x+(71*i), powerrowy);
+    pl.position(x+(71*i), plusrowy);
   }
 
   equals = createP("=");
-  equals.position(950, powerrowy);
-  //
-  // for (i = 0; i<9; i++) {
-  //   x = button1x-3;
-  //   ex = createP(numbers[i]*powers[i]);
-  //   ex.position(x+(70*i), powerrowy);
-  // }
+  equals.position(960, plusrowy);
 
-  textSize(20);
+  textSize(30);
   noStroke();
+
+  header = createElement('h2', "Can't figure it out? Enter a number in base 10 to convert to binary:");
+  header.position(10, 550);
+  input = createInput();
+  input.position(10, 610);
+  convertbutton = createButton('convert');
+  convertbutton.style("font-size", "18px");
+  convertbutton.position(input.x + input.width+4, input.y);
+  convertbutton.mousePressed(convertnumber);
+  a = createP(" ");
+
 }
 
 function draw() {
   total = numbers[0]*256+numbers[1]*128+numbers[2]*64+numbers[3]*32+numbers[4]*16+numbers[5]*8+numbers[6]*4+numbers[7]*2+numbers[8]
-  //text(numbers[0]*256 + "    +    " + numbers[1]*128 + "    +    " + numbers[2]*64 + "    +    " + numbers[3]*32 + "    +    " + numbers[4]*16 + "    +    " + numbers[5]*8 + "    +    " + numbers[6]*4 + "    +    "
-  //+ numbers[7]*2 + "    +    " + numbers[8] + "   =   " + total, 75, 80);
-text(total, 685, 93);
+
+text(total, 695, 142);
 }
 
-// function drawbuttons() {
-//   counter = 0;
-//   for (i=0; i<9; i++) {
-//     ourbutton = createButton(numbers[i]);
-//     ourbutton.position(canvasx+70*i, 10);
-//     ourbutton.mousePressed(function() {changenumber(i);})
-//     counter++;
-//   }
-
-function changenumber(x) {
-   if (numbers[x] == 0) {
-     numbers[x] = 1;
-     button1.html(numbers[x]);
-     let p1 = createP(numbers[x]);
-     p1.class('animated fadeOutUp');
-     p1.position(canvasx+70*x, 10);
-     clear();
-   } else {
-     numbers[x] = 0;
-     button1.html(numbers[x]);
-    let  p1 = createP(numbers[x]);
-     p1.position(canvasx+70*x, 10);
-     p1.class('animated fadeOutUp');
-     clear();
-   }
+function convertnumber() {
+  num = parseInt(input.value(), 10);
+  if (Number.isInteger(num) == true) {
+    a.position(10, 620);
+    a.html(num.toString(2));
+    clear();
   }
+  else {
+    a.position(10, 620);
+    a.html("ok that's not even a number. try again");
+    clear();
+  }
+}
 
 function changenumber1() {
   if (numbers[0] == 0) {
@@ -192,15 +168,17 @@ function changenumber1() {
     button1.html(numbers[0]);
     p1 = createP(numbers[0]);
     p1.class('animated fadeOutUp');
-    p1.position(button1x, buttonrowy-20);
+    p1.position(button1x, buttonrowy-45);
+    n1.position(button1x-17);
     n1.html(numbers[0]*powers[0]);
     clear();
   } else {
     numbers[0] = 0;
     button1.html(numbers[0]);
     p1 = createP(numbers[0]);
-    p1.position(button1x, buttonrowy-20);
+    p1.position(button1x, buttonrowy-45);
     p1.class('animated fadeOutUp');
+    n1.position(button1x-3);
     n1.html(numbers[0]);
     clear();
   }
@@ -212,7 +190,8 @@ function changenumber2() {
     button2.html(numbers[1]);
     p2 = createP(numbers[1]);
     p2.class('animated fadeOutUp');
-    p2.position(button2x, buttonrowy-20);
+    p2.position(button2x, buttonrowy-45);
+    n2.position(button2x-17);
     n2.html(numbers[1]*128);
     clear();
   } else {
@@ -220,7 +199,8 @@ function changenumber2() {
     button2.html(numbers[1]);
     p2 = createP(numbers[1]);
     p2.class('animated fadeOutUp');
-    p2.position(button2x, buttonrowy-20);
+    p2.position(button2x, buttonrowy-45);
+    n2.position(button2x-3);
     n2.html(numbers[1]);
     clear();
   }
@@ -232,7 +212,7 @@ function changenumber3() {
     button3.html(numbers[2]);
     p3 = createP(numbers[2]);
     p3.class('animated fadeOutUp');
-    p3.position(button3x, buttonrowy-20);
+    p3.position(button3x, buttonrowy-45);
     n3.html(numbers[2]*64);
     clear();
   } else {
@@ -240,7 +220,7 @@ function changenumber3() {
     button3.html(numbers[2]);
     p3 = createP(numbers[2]);
     p3.class('animated fadeOutUp');
-    p3.position(button3x, buttonrowy-20);
+    p3.position(button3x, buttonrowy-45);
     n3.html(numbers[2]);
     clear();
   }
@@ -252,7 +232,7 @@ function changenumber4() {
     button4.html(numbers[3]);
     p4 = createP(numbers[3]);
     p4.class('animated fadeOutUp');
-    p4.position(button4x, buttonrowy-20);
+    p4.position(button4x, buttonrowy-45);
     n4.html(numbers[3]*32)
     clear();
   } else {
@@ -260,7 +240,7 @@ function changenumber4() {
     button4.html(numbers[3]);
     p4 = createP(numbers[3]);
     p4.class('animated fadeOutUp');
-    p4.position(button4x, buttonrowy-20);
+    p4.position(button4x, buttonrowy-45);
     n4.html(numbers[3]);
     clear();
   }
@@ -272,7 +252,7 @@ function changenumber5() {
     button5.html(numbers[4]);
     p5 = createP(numbers[4]);
     p5.class('animated fadeOutUp');
-    p5.position(button5x, buttonrowy-20);
+    p5.position(button5x, buttonrowy-45);
     n5.html(numbers[4]*16);
     clear();
   } else {
@@ -280,7 +260,7 @@ function changenumber5() {
     button5.html(numbers[4]);
     p5 = createP(numbers[4]);
     p5.class('animated fadeOutUp');
-    p5.position(button5x, buttonrowy-20);
+    p5.position(button5x, buttonrowy-45);
     n5.html(numbers[4]);
     clear();
   }
@@ -292,7 +272,7 @@ function changenumber6() {
     button6.html(numbers[5]);
     p6 = createP(numbers[5]);
     p6.class('animated fadeOutUp');
-    p6.position(button6x, buttonrowy-20);
+    p6.position(button6x, buttonrowy-45);
     n6.html(numbers[5]*8)
     clear();
   } else {
@@ -300,7 +280,7 @@ function changenumber6() {
     button6.html(numbers[5]);
     p6 = createP(numbers[5]);
     p6.class('animated fadeOutUp');
-    p6.position(button6x, buttonrowy-20);
+    p6.position(button6x, buttonrowy-45);
     n6.html(numbers[5]);
     clear();
   }
@@ -312,7 +292,7 @@ function changenumber7() {
     button7.html(numbers[6]);
     p7 = createP(numbers[6]);
     p7.class('animated fadeOutUp');
-    p7.position(button7x, buttonrowy-20);
+    p7.position(button7x, buttonrowy-45);
     n7.html(numbers[6]*4)
     clear();
   } else {
@@ -320,7 +300,7 @@ function changenumber7() {
     button7.html(numbers[6]);
     p7 = createP(numbers[6]);
     p7.class('animated fadeOutUp');
-    p7.position(button7x, buttonrowy-20);
+    p7.position(button7x, buttonrowy-45);
     n7.html(numbers[6]);
     clear();
   }
@@ -332,7 +312,7 @@ function changenumber8() {
     button8.html(numbers[7]);
     p8 = createP(numbers[7]);
     p8.class('animated fadeOutUp');
-    p8.position(button8x, buttonrowy-20);
+    p8.position(button8x, buttonrowy-45);
     n8.html(numbers[7]*2);
     clear();
   } else {
@@ -340,7 +320,7 @@ function changenumber8() {
     button8.html(numbers[7]);
     p8 = createP(numbers[7]);
     p8.class('animated fadeOutUp');
-    p8.position(button8x, buttonrowy-20);
+    p8.position(button8x, buttonrowy-45);
     n8.html(numbers[7]);
     clear();
   }
@@ -352,7 +332,7 @@ function changenumber9() {
     button9.html(numbers[8]);
     p9 = createP(numbers[8]);
     p9.class('animated fadeOutUp');
-    p9.position(button9x, buttonrowy-20);
+    p9.position(button9x, buttonrowy-45);
     n9.html(numbers[8]);
     clear();
   } else {
@@ -360,7 +340,7 @@ function changenumber9() {
     button9.html(numbers[8]);
     p9 = createP(numbers[8]);
     p9.class('animated fadeOutUp');
-    p9.position(button9x, buttonrowy-20);
+    p9.position(button9x, buttonrowy-45);
     n9.html(numbers[8]);
     clear();
   }
