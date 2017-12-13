@@ -1,5 +1,5 @@
-var canvasx = 300;
-var canvasy = 150;
+var canvasx = 200;
+var canvasy = 70;
 var input, convertbutton, header, a;
 var n1, n2, n3, n4, n5, n6, n7, n8, n9;
 var numbers = [0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -10,14 +10,14 @@ var p1, p2, p3, p4, p5, p6, p7, p8, p9;
 
 function setup() {
 
-   canvas = createCanvas(1000, 1000);
+   canvas = createCanvas(800, 170);
    canvas.position(canvasx, canvasy);
 
    buttonrowy = canvasy+5;
 
-   exprowy = buttonrowy + 30;
+   exprowy = buttonrowy + 35;
 
-   xrowy = buttonrowy + 10;
+   xrowy = buttonrowy + 15;
 
    powerrowy = buttonrowy + 78;
 
@@ -125,7 +125,7 @@ function setup() {
   }
 
   equals = createP("=");
-  equals.position(960, plusrowy);
+  equals.position(860, plusrowy);
 
   textSize(30);
   noStroke();
