@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
 body {
-    background-color: white;
+    background-image: url("geometry.png");
     font-family: "Source Sans Pro";
 }
 h1 {
@@ -16,12 +16,13 @@ p {
   text-align: center;
 }
 button {
-    background-color: darkblue;
+    background-color: #39658E;
+    border-radius: 5px;
     border: none;
     color: white;
-    padding: 0px 6px;
+    padding: 0px 8px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 24px;
+    font-size: 30px;
 }
