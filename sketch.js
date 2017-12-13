@@ -10,6 +10,8 @@ var p1, p2, p3, p4, p5, p6, p7, p8, p9;
 
 function setup() {
 
+  //setting values for positioning...
+
    canvas = createCanvas(800, 170);
    canvas.position(canvasx, canvasy);
 
@@ -24,6 +26,11 @@ function setup() {
    powersize = "30px";
 
    plusrowy = powerrowy+10;
+
+     textSize(30);
+     noStroke();
+
+   //making all the buttons and their little labels...
 
   button1x = canvasx+70;
     button1 = createButton(0);
@@ -98,6 +105,7 @@ function setup() {
     n9.position(button9x-3, powerrowy);
     n9.style("font-size", powersize);
 
+    //making the row of x's...
 
   for (i = 0; i<9; i++) {
     x = button1x-4;
@@ -106,11 +114,15 @@ function setup() {
     xp.position(x+(70*i), xrowy);
   }
 
+  //making the row of exponents...
+
   for (i = 0; i<9; i++) {
     x = button1x-3;
     po = createP(exponents[8-i]);
     po.position(x+(70*i), exprowy);
   }
+
+//making the row of arrows...
 
   for (i = 0; i<9; i++) {
     x = button1x-3;
@@ -118,17 +130,20 @@ function setup() {
     ar.position(x+(70*i), exprowy+25);
   }
 
+//making the row of plus signs...
+
   for (i=0; i<8; i++) {
     let x = button1x+30;
     pl = createP("+");
     pl.position(x+(71*i), plusrowy);
   }
 
+  //making the little equals sign
+
   equals = createP("=");
   equals.position(860, plusrowy);
 
-  textSize(30);
-  noStroke();
+  //making the backwards converter...
 
   header = createElement('h2', "Can't figure it out? Enter a number in base 10 to convert to binary:");
   header.position(10, 550);
@@ -142,11 +157,15 @@ function setup() {
 
 }
 
+//the only thing in draw is the sum of the numbers, giving us our final answer.
+
 function draw() {
   total = numbers[0]*256+numbers[1]*128+numbers[2]*64+numbers[3]*32+numbers[4]*16+numbers[5]*8+numbers[6]*4+numbers[7]*2+numbers[8]
 
 text(total, 695, 142);
 }
+
+//the function for the converter box
 
 function convertnumber() {
   num = parseInt(input.value(), 10);
@@ -161,6 +180,9 @@ function convertnumber() {
     clear();
   }
 }
+
+//now here are all the functions for each individual button. they change the number and make the little animation that floats up
+//when you press it.
 
 function changenumber1() {
   if (numbers[0] == 0) {
